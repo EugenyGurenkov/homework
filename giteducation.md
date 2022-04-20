@@ -38,7 +38,6 @@ git config --global user.name "Ваше имя"
 $ git status
 On branch master
 nothing to commit, working tree clean
-
 ```
 ## 7. Отслеживание новых файлов.
 Для того чтобы начать отслеживать (добавить под версионный контроль) новый файл,
