@@ -184,3 +184,27 @@ origin    git@github.com:mojombo/grit.git (push)
 Это означает, что можно легко получить изменения от любого из этих пользователей. 
 
 ## Добавление удалённых репозиториев.
+
+Для того, чтобы добавить удалённый репозиторий и присвоить ему имя (*shortname*), необходимо выполнить команду ``git remote add <shortname> <url>``:
+```
+$ git remote
+origin
+$ git remote add pb https://github.com/paulboone/ticgit
+$ git remote -v
+origin	https://github.com/schacon/ticgit (fetch)
+origin	https://github.com/schacon/ticgit (push)
+pb	https://github.com/paulboone/ticgit (fetch)
+pb	https://github.com/paulboone/ticgit (push)
+```
+Теперь вместо указания полного пути мо использовать ``pb``. Например, если вы хотите получить изменения, которые есть у другого пользователя, но нет у вас, вы можете выполнить команду ``git fetch pb``:
+```
+$ git fetch pb
+remote: Counting objects: 43, done.
+remote: Compressing objects: 100% (36/36), done.
+remote: Total 43 (delta 10), reused 31 (delta 5)
+Unpacking objects: 100% (43/43), done.
+From https://github.com/paulboone/ticgit
+ * [new branch]      master     -> pb/master
+ * [new branch]      ticgit     -> pb/ticgit
+```
+Ветка master из репозитория другого пользоватея сейчас доступна под именем ``pb/master``. Её можно слить с одной из уже имеющихся веток или переключить на неё локальную ветку, чтобы просмотреть содержимое ветки другого пользователя.
